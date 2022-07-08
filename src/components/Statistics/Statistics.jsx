@@ -1,4 +1,3 @@
-import propTypes from 'prop-types';
 import {StatList, StatItem} from './Statistics.stylde';
 
 const Statistics = ({ good, neutral, bad,total,positiveFeedback }) => (
