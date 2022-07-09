@@ -10,6 +10,14 @@ class Feedback extends React.Component {
     neutral: 0,
     bad: 0,
   };
+  handleInkremet = event => {
+		const { name } = event.currentTarget;
+
+		this.setState(prevState => ({
+			[name]: prevState[name] + 1,
+		}));
+		
+	};
   handleGood = () => {
     this.setState(prevState => ({ good: prevState.good + 1 }));
     console.log('Hello Good');
@@ -46,10 +54,14 @@ class Feedback extends React.Component {
       <div>
         <Section title="Please live feedback" />
         <FeedbackOptions
+						options={['good', 'neutral', 'bad']}
+						onLeaveFeedback={this.handleInkremet}
+					/>
+        {/* <FeedbackOptions
           clickBad={this.handleBad}
           clickGood={this.handleGood}
           clickNeutral={this.handleNeutral}
-        />
+        /> */}
         <Section title="Statistics" />
         {total() !== 0 ? (
           <Statistics
